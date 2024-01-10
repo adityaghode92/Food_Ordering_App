@@ -1,1 +1,1 @@
-This is DAY 2 of learning react
+This is DAY 3 of learning react
