@@ -1,6 +1,11 @@
-import { LOGO_URL } from "../utils/mockdata.js";
+import { LOGO_URL } from "../utils/constant";
+import { useState } from "react";
 
- export const Header = () => (
+ export const Header = () => {
+
+  const [Login,setLogin] = useState("LOGIN");
+
+    return <>
     <div className="Header">
       <div className="logo-container">
         <img
@@ -14,10 +19,13 @@ import { LOGO_URL } from "../utils/mockdata.js";
           <li>About</li>
           <li>Contact</li>
           <li>Cart</li>
+          <button className="login=btn" onClick={()=> (Login === "LOGIN") ? setLogin("LOGOUT") : setLogin("LOGIN")}>{Login}</button>
         </ul>
       </div>
     </div>
-  );
+    </>
+
+  };
 
   
   export default Header

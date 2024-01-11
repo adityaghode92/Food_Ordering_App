@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     border: 1px solid black; 
+    align-items: center;
 }
 
 .logo{
@@ -81,3 +82,31 @@
     padding: 0;
     margin: 0;
 } */
+
+
+
+
+.shimmer-container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 19px;
+   
+}
+
+
+.shimmer-card{
+    margin: 7px;
+    padding: 4px;
+    height: 350px;
+    width: 200px; 
+    background-color:#f0f0f0;
+    border: none;
+    border-radius:15px; 
+}
+
+
+.login-button{
+    
+}
