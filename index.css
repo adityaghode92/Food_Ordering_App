@@ -46,6 +46,7 @@
 
 .res-card:hover{
     cursor: pointer;
+    scale: (0.9px);
    
 
 
@@ -60,8 +61,6 @@
     margin-top: 20px;
     object-fit: cover;
     justify-content: center;
-    
-    
 }
 
 
@@ -77,13 +76,6 @@
 
     padding: 5px;
 }
-
-/* .body-container{
-    padding: 0;
-    margin: 0;
-} */
-
-
 
 
 .shimmer-container{
@@ -109,4 +101,15 @@
 
 .login-button{
     
+}
+
+
+.Search-btn{
+    
+}
+
+
+.abc{
+    width: 330px;
+    /* height: 50px; */
 }

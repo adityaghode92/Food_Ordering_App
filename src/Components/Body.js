@@ -1,7 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer.js";
 import { API_LINK } from "../utils/constant";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //useState variable list of restaurants
@@ -75,7 +76,9 @@ const Body = () => {
       <div className="res-container">
         {/* sending Data in USESTATE Variable{listofRes} TO RestaurantCard card one by one  */}
         {filteredRes.map((x) => (
-          <RestaurantCard key={x.info.id} resData={x} />
+          <Link key={x.info.id} to={"/resmenu/"+x.info.id}>
+            <RestaurantCard  resData={x} />
+            </Link>
         ))}
       </div>
     </div>
