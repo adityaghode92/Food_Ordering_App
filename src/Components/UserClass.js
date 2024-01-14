@@ -1,23 +1,23 @@
-import React from "react";
+// import React from "react";
 
 
-class UserClass extends React.Component{
+// class UserClass extends React.Component{
 
-    //props
-    constructor(props){
-        super(props);
+//     //props
+//     constructor(props){
+//         super(props);
 
-        //state variables in class
-    this.state= {
-        count :2
-    };
-};
+//         //state variables in class
+//     this.state= {
+//         count :2
+//     };
+// };
 
     
-    render(){
-        return(<>
-        <div>Bakchod {this.props.name}</div>
-        <div>Count {this.state.count}</div></>);``
-    }
-}
-export default UserClass;
+//     render(){
+//         return(<>
+//         <div>Bakchod {this.props.name}</div>
+//         <div>Count {this.state.count}</div></>);``
+//     }
+// }
+// export default UserClass;

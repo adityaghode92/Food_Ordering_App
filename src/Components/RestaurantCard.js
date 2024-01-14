@@ -3,7 +3,7 @@ import { CDN_LINK } from "../utils/constant";
 const RestaurantCard = (props) => {
   
   //form map method
-    const { resData } =props;
+    const { resData } = props;
      
   //Destruturing
     const {name, cuisines,avgRating,sla } = resData?.info

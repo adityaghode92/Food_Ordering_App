@@ -1,37 +1,20 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu.js"
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
   const params = useParams();
-  console.log(params);
+  // console.log(params);
   
-  const [ResInfo, setResInfo] = useState(null);
-
-  //useEffect is always run after first render or every render
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  //data fetching
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId="+params.resId
-    );
-    const json = await data.json();
-    // console.log(json);
-    setResInfo(json.data);
-  };
+  const ResInfo = useRestaurantMenu(params.resId);
 
   //first render starts from here
   if (ResInfo === null) {
     return <Shimmer />;
   }
 
-  const { name, cuisines, cloudinaryImageId, costForTwoMessage } =
-    ResInfo?.cards[0]?.card?.card?.info;
-  const { itemCards, title } =
-    ResInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
+  const { name, cuisines, cloudinaryImageId, costForTwoMessage } = ResInfo?.cards[0]?.card?.card?.info;
+  const { itemCards, title } = ResInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
 
   return (
     <div className="RestaurantMenu">
@@ -50,8 +33,6 @@ const RestaurantMenu = () => {
             </li>
           );
         })}
-        <li>Sanwitch</li>
-        <li>Vadapav-Chatni</li>
       </ul>
     </div>
   );
