@@ -11,7 +11,7 @@ const Body = () => {
   const [filteredRes, setfilteredRes] = useState([]);
 
   //usestate variable for SearchText
-  const [searchtext,setsearchtext] = useState("");
+  const [searchtext, setsearchtext] = useState("");
   //useEffect
   useEffect(() => {
     fetchData();
@@ -30,7 +30,6 @@ const Body = () => {
     setfilteredRes(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-
   };
 
   //return
@@ -38,27 +37,39 @@ const Body = () => {
     <Shimmer />
   ) : (
     //body container
-    <div className="body-container">
+
+    <div className="body-container bg-yellow-100 ">
+     
+      <div className="filters  flex justify-end gap-3 p-2  ">
+        <input
+          className="Searchbar  border border-solid border-black "
+          type="text"
+          value={searchtext}
+          onChange={(e) => {
+            setsearchtext(e.target.value);
+          }}
+        ></input>
+        <button
+          className="Search-btn   px-4 py-2 rounded-lg   bg-blue-300"
+          onClick={() => {
+            //filter logic for search
+            //Search Input
+            //filter searched rearch restaurants & Update the UI
+            const searchedList = listofRes.filter((x) => {
+              return x.info.name
+                .toLowerCase()
+                .includes(searchtext.toLowerCase());
+            });
+            setfilteredRes(searchedList);
+          }}
+        >
+          Search
+        </button>
       
-      <div className="Searching">
-      <input id="Searchbar" type="text" value={searchtext} onChange={ (e)=>{setsearchtext(e.target.value);   }
-            }  ></input>
-      <button className="Search-btn" onClick={()=> {
-        //filter logic for search 
-        //Search Input
-        //filter searched rearch restaurants & Update the UI
-        const searchedList = listofRes.filter((x)=>{
-          return x.info.name.toLowerCase().includes(searchtext.toLowerCase());
-          });
-        setfilteredRes(searchedList); 
-        }} 
-        >Search</button>
-        </div>
-
-
+     
       {/* Top Rated Button */}
       <button
-        className="toprated-btn"
+        className="toprated-btn  px-4 py-2 rounded-lg   bg-green-500 "
         onClick={() => {
           //filter logic for top rated
           const topratedRes = listofRes.filter((x) => {
@@ -72,13 +83,15 @@ const Body = () => {
         Top Rated
       </button>
 
+      </div>
+
       {/* res-contaianer */}
-      <div className="res-container">
+      <div className="res-container flex flex-wrap justify-center">
         {/* sending Data in USESTATE Variable{listofRes} TO RestaurantCard card one by one  */}
         {filteredRes.map((x) => (
-          <Link key={x.info.id} to={"/resmenu/"+x.info.id}>
-            <RestaurantCard  resData={x} />
-            </Link>
+          <Link key={x.info.id} to={"/resmenu/" + x.info.id}>
+            <RestaurantCard resData={x} />
+          </Link>
         ))}
       </div>
     </div>
