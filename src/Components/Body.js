@@ -38,7 +38,7 @@ const Body = () => {
   ) : (
     //body container
 
-    <div className="body-container bg-yellow-100 ">
+    <div className="body-container bg-yellow-200 dark:bg-slate-800 ">
      
       <div className="filters  flex justify-end gap-3 p-2  ">
         <input
@@ -46,7 +46,7 @@ const Body = () => {
           type="text"
           value={searchtext}
           onChange={(e) => {
-            setsearchtext(e.target.value);
+            setsearchtext(e.target.value);s
           }}
         ></input>
         <button
