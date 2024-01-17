@@ -11,11 +11,11 @@ import DarkTheme from "./DarkTheme";
   const onlineStatus = useOnlineStatus();
 
     return <>
-    <div className="Header  flex items-center bg-yellow-100 dark:bg-slate-800 justify-between">
-      <div className="logo-container   w-36">
-        <img className="logo p-2 " src={LOGO_URL}/>
+    <div className="Header  flex items-center bg-yellow-400 dark:bg-slate-800 justify-between">
+      <div className="logo-container rounded-lg  w-36">
+        <img className="logo p-2  rounded-3xl" src={LOGO_URL}/>
       </div>
-      
+
       <div className="nav-items   flex items-center" >
         <ul className="flex p-4 m-4 items-center">
           <li><DarkTheme/></li>
@@ -25,7 +25,7 @@ import DarkTheme from "./DarkTheme";
           <li><Link to="/contact">Contact</Link></li>
           <li className="px-4">Cart</li>
           <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-          <button className="login-btn bg-blue-500 rounded-lg py-2 px-4 font-bold text-white" onClick={()=> (Login === "LOGIN") ? setLogin("LOGOUT") : setLogin("LOGIN")}>{Login}</button>
+          <button className="login-btn bg-blue-500 rounded-lg  px-4 font-bold text-white" onClick={()=> (Login === "LOGIN") ? setLogin("LOGOUT") : setLogin("LOGIN")}>{Login}</button>
         </ul>
       </div>
     </div>

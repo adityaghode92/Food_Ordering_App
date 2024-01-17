@@ -1,2 +1,3 @@
-Today I have Implemented Dard Mode Using TailWind
-and I found that it is an Amazing Things to make development more faster;
+1: Dark mode is improved 
+2: new Categories are created in RestaurnatMenu 
+3: accordians are created in RestaurantCategory
