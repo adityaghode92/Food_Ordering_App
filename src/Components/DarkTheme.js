@@ -8,7 +8,7 @@ const [theme,setTheme] = useState("🌙");
         <div ><button className="cursor-pointer " onClick={()=>{
             document.documentElement.classList.toggle("dark");
             theme==="🌙"?setTheme("☀️"):setTheme("🌙");
-        }}><h1 className="text-3xl">{theme}</h1>
+        }}><h1 className="text-full">{theme}</h1>
             
             </button></div>
     )

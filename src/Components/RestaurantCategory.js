@@ -1,13 +1,20 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = (props) => {
-  // console.log(props.data);
-  const [SHOWITEMS, setSHOWITEMS] = useState(false);
+const RestaurantCategory = ({ data, SHOWITEMS, setexpandIndex }) => {
+  // console.log(data);
+
+  const [flag, setflag] = useState(true);
 
   const handleEvent = () => {
-    setSHOWITEMS(!SHOWITEMS);
-  }
+    SHOWITEMS && setflag(!flag);
+    setexpandIndex();
+    console.log("clicked");
+  };
+
+  // const closeit =()=>{
+  //  setflag(false);
+  // }
 
   return (
     <div>
@@ -18,12 +25,16 @@ const RestaurantCategory = (props) => {
           onClick={handleEvent}
         >
           <span className="font-bold text-lg">
-            {props.data.title} [{props.data.itemCards.length}]
+            {data.title} [{data.itemCards.length}]
           </span>
-          <span>🔽</span>
+          <span
+          // onClick={closeit}
+          >
+            🔽
+          </span>
         </div>
         {/* //Accordian body */}
-        {SHOWITEMS && <ItemList items={props.data.itemCards} />}
+        {SHOWITEMS && flag && <ItemList items={data.itemCards} />}
       </div>
     </div>
   );

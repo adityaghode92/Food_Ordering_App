@@ -5,3 +5,11 @@
 // }
 
 // export default Grocery;
+
+
+
+//LAZY LOADING : 
+
+// import { lazy } from 'react';
+
+// const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
