@@ -1,14 +1,15 @@
 import { CDN_LINK } from "../utils/constant.js";
-import { addItems } from "../Redux/cartSlice.js";
+import { removeItem } from "../Redux/cartSlice.js";
 import { useDispatch } from "react-redux";
 
-const ItemList = ({ items }) => {
+const CartitemList = ({ items }) => {
   // console.log(items);
 
   const dispatch = useDispatch();
 
-  const handleAdd = (item) => {
-    dispatch(addItems(item));
+  const handleRemove = (item) => {
+    const index = items.indexOf(item);
+    dispatch(removeItem(index));
   };
 
   return (
@@ -40,9 +41,9 @@ const ItemList = ({ items }) => {
               ></img>
               <button
                 className="dark:text-black absolute py-1 px-4 rounded-md bg-white hover:scale-105 shadow-lg font-bold bottom-1 "
-                onClick={() => handleAdd(item)}
+                onClick={() => handleRemove(item)}
               >
-                Add +
+                Remove +
               </button>
             </div>
           </div>
@@ -51,4 +52,4 @@ const ItemList = ({ items }) => {
     </div>
   );
 };
-export default ItemList;
+export default CartitemList;

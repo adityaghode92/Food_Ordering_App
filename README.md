@@ -1,1 +1,1 @@
-In this Episode I learn react redux and Implemented it as global storage
+Made Filter a seperate from body for making it Light weight

@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="Header  flex items-center bg-yellow-400 dark:bg-slate-800 justify-between">
+      <div className="Header  flex items-center bg-yellow-400 dark:bg-slate-800 justify-between  top-0 sticky z-50">
         <div className="logo-container rounded-lg  w-36">
           <img className="logo p-2  rounded-3xl" src={LOGO_URL} />
         </div>

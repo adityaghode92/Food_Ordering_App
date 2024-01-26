@@ -2,20 +2,21 @@ import RestaurantCard, { withPromoted } from "./RestaurantCard";
 import Shimmer from "./Shimmer.js";
 import { API_LINK } from "../utils/constant";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";Filter
+import Filter from "./Filter.js";
 
 const Body = () => {
   //useState variable list of restaurants
   const [listofRes, setlistofRes] = useState([]);
 
   const [filteredRes, setfilteredRes] = useState([]);
-  
+
   //for promoted restaurants
   const Promotedrestaurant = withPromoted(RestaurantCard);
 
   //usestate variable for SearchText
   const [searchtext, setsearchtext] = useState("");
- 
+
   //useEffect
   useEffect(() => {
     fetchData();
@@ -43,64 +44,9 @@ const Body = () => {
     //body container
 
     <div className="body-container bg-yellow-400 dark:bg-slate-800 ">
-      <div className="filters  flex justify-end gap-3 p-2  ">
-        <input
-          className="Searchbar  border border-solid border-black px-2"
-          placeholder="Search here " type="text"
-          
-          value={searchtext}
-         
-          onChange={(e) => {
-           
-            
-            setsearchtext(e.target.value);
-
-            const searchedList = listofRes.filter((x) => {
-              return x.info.name
-              .toLowerCase()
-              .includes(e.target.value.toLowerCase());
-            });
-
-          
-            setfilteredRes(searchedList);
-            
-
-          }}
-          ></input>
-        <button
-          className="Search-btn   px-4 py-2 rounded-lg   bg-blue-300"
-          onClick={() => {
-            //filter logic for search
-            //Search Input
-            //filter searched rearch restaurants & Update the UI
-            const searchedList = listofRes.filter((x) => {
-              return x.info.name
-                .toLowerCase()
-                .includes(searchtext.toLowerCase());
-            });
-            setfilteredRes(listofRes);
-            setsearchtext("");
-          }}
-        >
-          ALL
-        </button>
-
-        {/* Top Rated Button */}
-        <button
-          className="toprated-btn  px-4 py-2 rounded-lg   bg-green-500 "
-          onClick={() => {
-            //filter logic for top rated
-            const topratedRes = listofRes.filter((x) => {
-              return x.info.avgRating > 4.2;
-            });
-            //fileter done and stored in (topratedRes)
-            //updating USESTATE Variable to (topratedRes)
-            setfilteredRes(topratedRes);
-          }}
-        >
-          Top Rated
-        </button>
-      </div>
+      
+      <Filter filteredRes={filteredRes}  searchtext={searchtext} listofRes={listofRes}
+               setfilteredRes={setfilteredRes} setsearchtext={setsearchtext} setlistofRes={setlistofRes}/>
 
       {/* res-contaianer */}
       <div className="res-container flex flex-wrap justify-center">

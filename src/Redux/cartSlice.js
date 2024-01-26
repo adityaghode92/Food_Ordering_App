@@ -6,14 +6,14 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
   },
-  
+
   reducers: {
     //uses immer BTS
     addItems: (state, action) => {
       state.items.push(action.payload);
     },
     removeItem: (state, action) => {
-      state.items.pop();
+      state.items.splice(action.payload,1);
     },
     clearItems: (state) => {
       state.items.length = 0;
