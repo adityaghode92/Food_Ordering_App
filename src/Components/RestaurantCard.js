@@ -31,7 +31,7 @@ const RestaurantCard = (props) => {
 };
 
 
-export const withPromoted = (restaurant)=>{
+export const withPromoted = ()=>{
   return (props)=>{
       return(
         <div>

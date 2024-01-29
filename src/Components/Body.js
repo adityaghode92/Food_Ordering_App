@@ -2,7 +2,8 @@ import RestaurantCard, { withPromoted } from "./RestaurantCard";
 import Shimmer from "./Shimmer.js";
 import { API_LINK } from "../utils/constant";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";Filter
+import { Link } from "react-router-dom";
+
 import Filter from "./Filter.js";
 
 const Body = () => {
@@ -45,8 +46,14 @@ const Body = () => {
 
     <div className="body-container bg-yellow-400 dark:bg-slate-800 ">
       
-      <Filter filteredRes={filteredRes}  searchtext={searchtext} listofRes={listofRes}
-               setfilteredRes={setfilteredRes} setsearchtext={setsearchtext} setlistofRes={setlistofRes}/>
+      <Filter
+        filteredRes={filteredRes}
+        searchtext={searchtext}
+        listofRes={listofRes}
+        setfilteredRes={setfilteredRes}
+        setsearchtext={setsearchtext}
+        setlistofRes={setlistofRes}
+      />
 
       {/* res-contaianer */}
       <div className="res-container flex flex-wrap justify-center">
