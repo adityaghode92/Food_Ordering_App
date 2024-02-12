@@ -20,18 +20,18 @@ const Filter = (props) => {
         }}
       ></input>
       <button
-        className="Search-btn  dark:text-black px-4 py-2 rounded-lg   bg-blue-300"
+        className="Search-btn  dark:text-black px-4 py-2 rounded-lg  font-bold bg-blue-300"
         onClick={() => {
           props.setfilteredRes(props.listofRes);
           props.setsearchtext("");
         }}
       >
-        ALL
+        All
       </button>
 
       {/* Top Rated Button */}
       <button
-        className="toprated-btn  px-4 py-2 rounded-lg dark:text-black  bg-green-500 "
+        className="toprated-btn  px-4 py-2 rounded-lg dark:text-black  bg-green-500 font-bold "
         onClick={() => {
           //filter logic for top rated
           const topratedRes = props.listofRes.filter((x) => {
@@ -41,9 +41,7 @@ const Filter = (props) => {
           //updating USESTATE Variable to (topratedRes)
           props.setfilteredRes(topratedRes);
         }}
-      >
-        Top Rated
-      </button>
+      >Top Rated</button>
     </div>
   );
 };

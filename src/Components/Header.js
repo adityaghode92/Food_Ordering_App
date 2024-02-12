@@ -13,7 +13,6 @@ export const Header = () => {
 
   //subscribing store to the Header using useSelector
   const cartItems = useSelector((Store) => Store.cart.items);
-  console.log(cartItems);
 
   return (
     <>
@@ -43,14 +42,15 @@ export const Header = () => {
             <li className="px-4">
               <Link to="/grocery">Grocery</Link>
             </li>
+
             <button
               className="login-btn bg-blue-500 rounded-lg py-2 px-4 font-bold text-white"
               onClick={() =>
                 Login === "LOGIN" ? setLogin("LOGOUT") : setLogin("LOGIN")
-              }
-            >
+              }>
               {Login}
             </button>
+
           </ul>
         </div>
       </div>

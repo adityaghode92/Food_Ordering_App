@@ -1,51 +1,33 @@
 import RestaurantCard, { withPromoted } from "./RestaurantCard";
 import Shimmer from "./Shimmer.js";
-import { API_LINK } from "../utils/constant";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import Filter from "./Filter.js";
+import useResList from "../utils/useResList.js";
+import Carousel from "./Carousel.js";
+
 
 const Body = () => {
-  //useState variable list of restaurants
-  const [listofRes, setlistofRes] = useState([]);
 
-  const [filteredRes, setfilteredRes] = useState([]);
+  const[listofRes,filteredRes,searchtext,setlistofRes,setfilteredRes,setsearchtext,carousel] = useResList();
 
-  //for promoted restaurants
-  const Promotedrestaurant = withPromoted(RestaurantCard);
 
-  //usestate variable for SearchText
-  const [searchtext, setsearchtext] = useState("");
-
-  //useEffect
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  //API fectch
-  const fetchData = async () => {
-    const data = await fetch(API_LINK);
-
-    const json = await data.json();
-    //data fetching done
-    //giving data to useState (list of restaurnats)
-    setlistofRes(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setfilteredRes(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
-
+    //for promoted restaurants
+    //Higher order Component
+    const Promotedrestaurant = withPromoted(RestaurantCard);
+    
   //return
   return listofRes.length === 0 ? (
     <Shimmer />
   ) : (
-    //body container
 
+    //body container
     <div className="body-container bg-yellow-400 dark:bg-slate-800 ">
       
+
+    <Carousel carousel={carousel} setfilterResList={setfilteredRes}/>
+
+          
       <Filter
         filteredRes={filteredRes}
         searchtext={searchtext}
