@@ -12,7 +12,6 @@ import { Provider } from "react-redux";
 import appStore from "./Redux/appStore.js";
 import Cart from "./Components/Cart.js";
 
-
 // import Grocery from "./Components/Grocery.js";
 
 // lazy loading
@@ -21,12 +20,14 @@ import Cart from "./Components/Cart.js";
 const AppLayout = () => {
   return (
     <Provider store={appStore}>
-    <UserContext.Provider value={{UserLoggedIn: "Default User"}}>
-    <div className="App dark:bg-slate-800 dark:text-yellow-300 pb-18">
-      <Header />
-      <Outlet />
-    </div>
-    </UserContext.Provider>
+      <UserContext.Provider value={{ UserLoggedIn: "Default User" }}>
+        <div className="App dark:bg-slate-800 dark:text-yellow-100 min-h-screen flex flex-col overflow-x-hidden">
+          <Header />
+          <main className="flex-grow p-4 md:p-6 lg:p-8">
+            <Outlet />
+          </main>
+        </div>
+      </UserContext.Provider>
     </Provider>
   );
 };
@@ -59,15 +60,16 @@ const appRouter = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
-      // {
-      //   path: "/grocery",
-      //   element: (
-      //     <Suspense>
-      //       <Grocery />
-      //     </Suspense>
-      //   ),
-      //   errorElement: <Error />,
-      // },
+      {
+        path: "/grocery",
+        // element: (
+        //   <Suspense>
+        //     <Grocery />
+        //   </Suspense>
+        // ),
+        element: <Error />
+        // errorElement: <Error />,
+      },
     ],
   },
 ]);

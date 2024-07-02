@@ -8,7 +8,7 @@
 
 
 
-//LAZY LOADING : 
+// // LAZY LOADING : 
 
 // import { lazy } from 'react';
 

@@ -3,7 +3,7 @@ const Filter = (props) => {
   return (
     <div className="filters  flex justify-center gap-3 p-6  ">
       <input
-        className="Searchbar  border border-solid border-black px-2"
+        className="Searchbar  border border-solid border-black px-2  dark:text-black"
         placeholder="Search here "
         type="text"
         value={props.searchtext}
