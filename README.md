@@ -1,6 +1,6 @@
-## Food Ordering Website
+### Food Ordering App
 
-## Screenshot
+# Screenshot
 
 ![Food Ordering Website Screenshot](./src/utils/assets/Food_orderingSS.png) 
 
