@@ -3,7 +3,11 @@
     "builds": [
       {
         "src": "api/proxy.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["node_modules/node-fetch/**/*"],
+          "excludeFiles": [".gitignore", "README.md"]
+        }
       }
     ],
     "rewrites": [
